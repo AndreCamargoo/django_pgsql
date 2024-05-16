@@ -1,0 +1,42 @@
+{% load static %}
+<section id="team" class="section-padding bg-gray">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2 class="section-title wow fadeInDown" data-wow-delay="0.3s">Meet our team</h2>
+        <div class="shape wow fadeInDown" data-wow-delay="0.3s"></div>
+      </div>
+      <div class="row">
+
+        {% for team in teams %}
+        <div class="col-lg-6 col-md-12 col-xs-12">
+          <!-- Team Item Starts -->
+          <div class="team-item wow fadeInRight" data-wow-delay="0.2s">
+            <div class="team-img">
+              <img class="img-fluid" src="{{ team.image.thumb.url }}" alt="{{ team.name }}">
+            </div>
+            <div class="contetn">
+              <div class="info-text">
+                <h3><a href="#">{{ team.name }}</a></h3>
+                <p>{{ team.job }}</p>
+              </div>
+              <p>{{ team.bio }}</p>
+              <ul class="social-icons">
+                {% if team.facebook != '#' %}
+                <li><a href="{{ team.facebook }}"><i class="lni-facebook-filled" aria-hidden="true"></i></a></li>
+                {% endif %}
+                {% if team.twitter != '#' %}
+                <li><a href="{{ team.twitter }}"><i class="lni-twitter-filled" aria-hidden="true"></i></a></li>
+                {% endif %}
+                {% if team.instagram != '#' %}
+                <li><a href="{{ team.instagram }}"><i class="lni-instagram-filled" aria-hidden="true"></i></a></li>
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+          <!-- Team Item Ends -->
+        </div>
+        {% endfor %}
+
+      </div>
+    </div>
+  </section>
